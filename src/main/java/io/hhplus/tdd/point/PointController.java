@@ -16,6 +16,8 @@ public class PointController {
 
     private final UserPointFindService userPointFindService;
 
+    private final UserPointChargeService userPointChargeService;
+
     /**
      * TODO - 특정 유저의 포인트를 조회하는 기능을 작성해주세요.
      */
@@ -44,7 +46,7 @@ public class PointController {
             @PathVariable long id,
             @RequestBody long amount
     ) {
-        return new UserPoint(0, 0, 0);
+        return userPointChargeService.chargePoint(id, amount);
     }
 
     /**
