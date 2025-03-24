@@ -20,6 +20,8 @@ public class PointController {
 
     private final UserPointUseService userPointUseService;
 
+    private final PointHistoryService pointHistoryService;
+
     /**
      * TODO - 특정 유저의 포인트를 조회하는 기능을 작성해주세요.
      */
@@ -37,7 +39,7 @@ public class PointController {
     public List<PointHistory> history(
             @PathVariable long id
     ) {
-        return List.of();
+        return pointHistoryService.getPointHistories(id);
     }
 
     /**
