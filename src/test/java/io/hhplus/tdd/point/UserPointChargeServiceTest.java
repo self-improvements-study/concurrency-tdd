@@ -40,7 +40,7 @@ class UserPointChargeServiceTest {
                 .thenReturn(new UserPoint(userId, currentPoint, System.currentTimeMillis()));
         when(userPointTable.insertOrUpdate(eq(userId), eq(amount + currentPoint)))
                 .thenReturn(new UserPoint(userId, amount + currentPoint, System.currentTimeMillis()));
-        when(pointHistoryTable.insert(anyLong(), anyLong(), any(), anyLong()))
+        when(pointHistoryTable.insert(eq(userId), eq(amount), eq(TransactionType.CHARGE), anyLong()))
                 .thenReturn(new PointHistory(userId, userId, amount, TransactionType.CHARGE, System.currentTimeMillis()));
 
         // when

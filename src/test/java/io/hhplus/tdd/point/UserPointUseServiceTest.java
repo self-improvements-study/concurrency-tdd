@@ -43,8 +43,8 @@ class UserPointUseServiceTest {
                 .thenReturn(new UserPoint(userId, currentPoint, System.currentTimeMillis()));
         when(userPointTable.insertOrUpdate(eq(userId), eq(remainingPoint)))
                 .thenReturn(new UserPoint(userId, remainingPoint, System.currentTimeMillis()));
-        when(pointHistoryTable.insert(anyLong(), anyLong(), any(), anyLong()))
-                .thenReturn(new PointHistory(userId, userId, currentPoint, TransactionType.USE, System.currentTimeMillis()));
+        when(pointHistoryTable.insert(eq(userId), eq(amount), eq(TransactionType.USE), anyLong()))
+                .thenReturn(new PointHistory(userId, userId, amount, TransactionType.USE, System.currentTimeMillis()));
 
         // when
         UserPoint userPoint = sut.usePoint(userId, amount);

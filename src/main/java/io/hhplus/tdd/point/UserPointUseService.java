@@ -25,9 +25,9 @@ public class UserPointUseService {
         long remainingPoint = currentUserPoint.point();
 
         UserPoint remainingUserPoint = userPointTable.insertOrUpdate(userId, remainingPoint);
-
-        pointHistoryTable.insert(userId, remainingPoint, TransactionType.USE, System.currentTimeMillis());
+        pointHistoryTable.insert(userId, amount, TransactionType.USE, System.currentTimeMillis());
 
         return remainingUserPoint;
     }
+
 }

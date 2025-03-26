@@ -25,7 +25,7 @@ public class UserPointChargeService {
         long chargedPoint = chargedUserPoint.point();
 
         UserPoint addedUserPoint = userPointTable.insertOrUpdate(userId, chargedPoint);
-        pointHistoryTable.insert(userId, chargedPoint, TransactionType.CHARGE, System.currentTimeMillis());
+        pointHistoryTable.insert(userId, amount, TransactionType.CHARGE, System.currentTimeMillis());
 
         return addedUserPoint;
     }
