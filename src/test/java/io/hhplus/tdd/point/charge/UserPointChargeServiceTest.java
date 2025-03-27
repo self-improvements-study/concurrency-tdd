@@ -1,7 +1,10 @@
-package io.hhplus.tdd.point;
+package io.hhplus.tdd.point.charge;
 
 import io.hhplus.tdd.database.PointHistoryTable;
 import io.hhplus.tdd.database.UserPointTable;
+import io.hhplus.tdd.point.PointHistory;
+import io.hhplus.tdd.point.TransactionType;
+import io.hhplus.tdd.point.UserPoint;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -20,7 +23,7 @@ import static org.mockito.Mockito.when;
 class UserPointChargeServiceTest {
 
     @InjectMocks
-    private UserPointChargeService sut;
+    private LockedUserPointChargeService sut;
 
     @Mock
     private UserPointTable userPointTable;
